@@ -1,8 +1,13 @@
 {
   "name": "survey-app",
   "version": "1.0.0",
-  "description": "React application for sending surveys and analyze the results.",
+  "description":
+    "React application for sending surveys and analyze the results.",
   "main": "index.js",
+  "engines": {
+    "node": "8.7.0",
+    "npm": "5.4.2"
+  },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
@@ -17,8 +22,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.babel.js"
+    "start": "node index.babel.js",
+    "dev": "nodemon index.babel.js"
   },
   "keywords": [
     "node.js",
