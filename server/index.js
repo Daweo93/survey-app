@@ -2,6 +2,7 @@ import express from 'express';
 import http from 'http';
 import config from './config';
 import router from './router';
+import './services/passport-google-oauth';
 
 const app = express();
 

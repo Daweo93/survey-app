@@ -1,6 +1,5 @@
 import express from 'express';
 import passport from 'passport';
-import passportGoogleOauth from './services/passport-google-oauth';
 
 const router = express.Router();
 
