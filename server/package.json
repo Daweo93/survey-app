@@ -1,8 +1,7 @@
 {
   "name": "survey-app",
   "version": "1.0.0",
-  "description":
-    "React application for sending surveys and analyze the results.",
+  "description": "React application for sending surveys and analyze the results.",
   "main": "index.js",
   "engines": {
     "node": "8.7.0",
@@ -15,6 +14,7 @@
     "body-parser": "^1.18.2",
     "cookie-session": "^2.0.0-beta.3",
     "express": "^4.16.2",
+    "mongoose": "^4.12.3",
     "morgan": "^1.9.0",
     "nodemon": "^1.12.1",
     "passport": "^0.4.0",
