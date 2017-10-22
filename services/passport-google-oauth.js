@@ -11,10 +11,9 @@ passport.serializeUser((user, done) => {
 });
 
 // Deserialize User with the user ID to get user data
-passport.deserializeUser((id, done) => {
-  User.findById(id).then(user => {
-    done(null, user);
-  });
+passport.deserializeUser(async (id, done) => {
+  const user = await User.findById(id);
+  done(null, user);
 });
 
 // Setup passport strategy which use Passport Google OAuth20
@@ -26,19 +25,17 @@ passport.use(
       callbackURL: '/auth/google/callback',
       proxy: true
     },
-    (accessToken, refreshToken, profile, done) => {
+    async (accessToken, refreshToken, profile, done) => {
       // Check if this user with given ID is already created
-      User.findOne({ googleId: profile.id }).then(existingUser => {
-        if (!existingUser) {
-          // User doesn't exist, create it
-          new User({ googleId: profile.id })
-            .save()
-            .then(user => done(null, user));
-        } else {
-          // User already exist
-          done(null, existingUser);
-        }
-      });
+      const existingUser = await User.findOne({ googleId: profile.id });
+      if (existingUser) {
+        // User already exist return it
+        return done(null, existingUser);
+      }
+
+      // User doesn't exist, create it
+      const user = await new User({ googleId: profile.id }).save();
+      done(null, user);
     }
   )
 );
