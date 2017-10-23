@@ -1,8 +1,9 @@
 import { applyMiddleware, createStore } from 'redux';
+import reduxThunk from 'redux-thunk';
 import rootReducer from './reducers';
 
 const configureStore = () => {
-  const createStoreWithMiddleware = applyMiddleware()(createStore);
+  const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
   if (process.env.NODE_ENV !== 'production') {
     const store = createStoreWithMiddleware(
       rootReducer,
