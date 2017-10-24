@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { AppBar, Toolbar, Typography, Button, withStyles } from 'material-ui';
+import { AppBar, Toolbar, Button, withStyles } from 'material-ui';
 
 const styles = theme => ({
   logo: {

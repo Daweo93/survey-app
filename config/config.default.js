@@ -4,5 +4,7 @@ export default {
   googleClientSecret: 'google_oauth_client_secret',
   mLabConnection:
     'mongodb://<dbuser>:<dbpassword>@ds127065.mlab.com:27065/<database_name>',
-  cookieKey: 'random_string'
+  cookieKey: 'random_string',
+  stripePublishableKey: 'stripe publishable key',
+  stripeSecretKey: 'stripe secret key'
 };
