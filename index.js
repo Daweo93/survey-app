@@ -7,7 +7,6 @@ import bodyParser from 'body-parser';
 import path from 'path';
 import config from './config/config';
 import router from './router';
-console.log(config);
 import './models/User';
 import './services/passport-google-oauth';
 
