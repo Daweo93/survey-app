@@ -4,7 +4,7 @@ import { Typography } from 'material-ui';
 const Landing = () => {
   return (
     <div>
-      <Typography align="center" type="display4">
+      <Typography align="center" type="display3">
         Survejer
       </Typography>
       <Typography align="center">Collect feedback from your users</Typography>

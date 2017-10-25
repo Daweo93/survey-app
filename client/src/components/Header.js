@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { AppBar, Toolbar, Button, withStyles } from 'material-ui';
+import Payments from './Payments';
+import {
+  Grid,
+  AppBar,
+  Toolbar,
+  Button,
+  withStyles,
+  Typography
+} from 'material-ui';
 
 const styles = theme => ({
   logo: {
@@ -10,6 +18,9 @@ const styles = theme => ({
     fontSize: '22px',
     fontFamily: 'Roboto',
     textDecoration: 'none'
+  },
+  credits: {
+    marginRight: '16px'
   }
 });
 
@@ -26,9 +37,15 @@ class Header extends Component {
         );
       default:
         return (
-          <Button href="/api/logout" color="contrast">
-            Logout
-          </Button>
+          <Grid container alignItems="center" justify="flex-end">
+            <Typography color="inherit" className={this.props.classes.credits}>
+              Credits: {this.props.auth.credits}
+            </Typography>
+            <Payments />
+            <Button href="/api/logout" color="contrast">
+              Logout
+            </Button>
+          </Grid>
         );
     }
   }

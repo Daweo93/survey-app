@@ -3,6 +3,7 @@ import http from 'http';
 import mongoose from 'mongoose';
 import cookieSession from 'cookie-session';
 import passport from 'passport';
+import bodyParser from 'body-parser';
 import config from './config/config';
 import router from './router';
 import './models/User';
@@ -14,6 +15,7 @@ mongoose.connect(config.mLabConnection, {
   useMongoClient: true
 });
 
+app.use(bodyParser.json());
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
