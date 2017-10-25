@@ -1,7 +1,8 @@
 {
   "name": "survey-app",
   "version": "1.0.0",
-  "description": "React application for sending surveys and analyze the results.",
+  "description":
+    "React application for sending surveys and analyze the results.",
   "main": "index.js",
   "engines": {
     "node": "8.7.0",
@@ -24,7 +25,9 @@
   "devDependencies": {},
   "scripts": {
     "start": "node index.babel.js",
-    "dev": "nodemon index.babel.js"
+    "dev": "nodemon index.babel.js",
+    "heroku-postbuild":
+      "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [
     "node.js",
