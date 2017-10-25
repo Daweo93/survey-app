@@ -12,6 +12,8 @@ import './services/passport-google-oauth';
 
 const app = express();
 
+console.log(process.env.NODE_ENV);
+
 mongoose.connect(config.mLabConnection, {
   useMongoClient: true
 });
