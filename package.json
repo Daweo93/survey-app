@@ -24,7 +24,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node index.babel.js",
+    "start": "NODE_ENV=production node index.babel.js",
     "dev": "nodemon index.babel.js",
     "client-install": "(cd ./client && yarn install)",
     "client-build": "(cd ./client && yarn run build)",

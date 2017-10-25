@@ -7,12 +7,11 @@ import bodyParser from 'body-parser';
 import path from 'path';
 import config from './config/config';
 import router from './router';
+console.log(process.env.NODE_ENV);
 import './models/User';
 import './services/passport-google-oauth';
 
 const app = express();
-
-console.log(process.env.NODE_ENV);
 
 mongoose.connect(config.mLabConnection, {
   useMongoClient: true
