@@ -8,6 +8,7 @@ import path from 'path';
 import config from './config/config';
 import router from './router';
 import './models/User';
+import './models/Survey';
 import './services/passport-google-oauth';
 
 const app = express();

@@ -21,15 +21,18 @@ router.get(
   }
 );
 
+// Route to logout from our app
 router.get('/api/logout', (req, res) => {
   req.logout();
   res.redirect('/');
 });
 
+// Router which send back current user
 router.get('/api/current_user', (req, res) => {
   res.send(req.user);
 });
 
+// Route to handle payment
 router.post('/api/stripe', requireLogin, stripePayment);
 
 export default router;
