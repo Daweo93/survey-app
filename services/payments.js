@@ -1,4 +1,4 @@
-import config from '../config/dev';
+import config from '../config/config';
 import Stripe from 'stripe';
 
 const stripe = new Stripe(config.stripeSecretKey);
@@ -13,4 +13,6 @@ export default async (req, res) => {
 
   req.user.credits += 5;
   const user = await req.user.save();
+
+  res.send(user);
 };
