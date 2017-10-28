@@ -1,28 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Aux from 'react-aux';
 import Payments from './Payments';
-import {
-  Grid,
-  AppBar,
-  Toolbar,
-  Button,
-  withStyles,
-  Typography
-} from 'material-ui';
-
-const styles = theme => ({
-  logo: {
-    flex: 1,
-    color: '#ffffff',
-    fontSize: '22px',
-    fontFamily: 'Roboto',
-    textDecoration: 'none'
-  },
-  credits: {
-    marginRight: '16px'
-  }
-});
 
 class Header extends Component {
   renderContent() {
@@ -31,38 +11,46 @@ class Header extends Component {
         return;
       case false:
         return (
-          <Button href="/auth/google" color="contrast">
-            Login with Google
-          </Button>
+          <li>
+            <a href="/auth/google" color="contrast">
+              Login with Google
+            </a>
+          </li>
         );
       default:
         return (
-          <Grid container alignItems="center" justify="flex-end">
-            <Typography color="inherit" className={this.props.classes.credits}>
+          <Aux>
+            <li>
+              <Payments />
+            </li>
+            <li style={{ margin: '0 10px' }}>
               Credits: {this.props.auth.credits}
-            </Typography>
-            <Payments />
-            <Button href="/api/logout" color="contrast">
-              Logout
-            </Button>
-          </Grid>
+            </li>
+            <li>
+              <Link to="/api/logout">Logout</Link>
+            </li>
+          </Aux>
         );
     }
   }
 
   render() {
     return (
-      <AppBar position="static">
-        <Toolbar>
-          <Link
-            to={this.props.auth ? '/surveys' : '/'}
-            className={this.props.classes.logo}
-          >
-            Survejer
-          </Link>
-          {this.renderContent()}
-        </Toolbar>
-      </AppBar>
+      <nav className="blue darken-3 ">
+        <div className="row">
+          <div className="nav-wrapper col s12">
+            <Link
+              className="brand-logo"
+              to={this.props.auth ? '/surveys' : '/'}
+            >
+              Survejer
+            </Link>
+            <ul id="nav-mobile" className="right hide-on-med-and-down">
+              {this.renderContent()}
+            </ul>
+          </div>
+        </div>
+      </nav>
     );
   }
 }
@@ -71,4 +59,4 @@ function mapStateToProps({ auth }) {
   return { auth };
 }
 
-export default connect(mapStateToProps)(withStyles(styles)(Header));
+export default connect(mapStateToProps)(Header);

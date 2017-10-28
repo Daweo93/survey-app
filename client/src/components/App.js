@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
-import { Grid } from 'material-ui';
 import * as actions from '../actions';
 import Header from './Header';
 import Landing from './Landing';
-import Surveys from './Surveys';
+import Dashboard from './Dashboard';
 
 class App extends Component {
   componentDidMount() {
@@ -14,13 +13,13 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <Grid container>
+        <div>
           <Header />
-          <Grid item xs={12}>
+          <div className="container">
             <Route exact path="/" component={Landing} />
-            <Route exact path="/surveys" component={Surveys} />
-          </Grid>
-        </Grid>
+            <Route exact path="/surveys" component={Dashboard} />
+          </div>
+        </div>
       </BrowserRouter>
     );
   }

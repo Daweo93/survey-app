@@ -1,14 +1,12 @@
 import React from 'react';
-import { Typography } from 'material-ui';
+import Aux from 'react-aux';
 
 const Landing = () => {
   return (
-    <div>
-      <Typography align="center" type="display3">
-        Survejer
-      </Typography>
-      <Typography align="center">Collect feedback from your users</Typography>
-    </div>
+    <Aux>
+      <h1 className="center">Survejer</h1>
+      <h5 className="center">Collect feedback from your users</h5>
+    </Aux>
   );
 };
 
