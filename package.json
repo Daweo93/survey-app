@@ -1,8 +1,7 @@
 {
   "name": "survey-app",
   "version": "1.0.0",
-  "description":
-    "React application for sending surveys and analyze the results.",
+  "description": "React application for sending surveys and analyze the results.",
   "main": "index.js",
   "engines": {
     "node": "8.7.0",
@@ -20,6 +19,7 @@
     "nodemon": "^1.12.1",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0",
+    "sendgrid": "^5.2.3",
     "stripe": "^5.1.1"
   },
   "devDependencies": {},
@@ -28,8 +28,7 @@
     "dev": "nodemon index.babel.js",
     "client-install": "(cd ./client && yarn install)",
     "client-build": "(cd ./client && yarn run build)",
-    "heroku-postbuild":
-      "YARN_PRODUCTION=false yarn run client-install && yarn run client-build"
+    "heroku-postbuild": "YARN_PRODUCTION=false yarn run client-install && yarn run client-build"
   },
   "keywords": [
     "node.js",

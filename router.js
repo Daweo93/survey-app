@@ -1,7 +1,9 @@
 import express from 'express';
 import passport from 'passport';
 import stripePayment from './services/payments';
+import { createSurvey } from './services/surveys';
 import requireLogin from './middlewares/requireLogin';
+import requireCredits from './middlewares/requireCredits';
 const router = express.Router();
 
 // Router to get first authentication call which give back secret code
@@ -34,5 +36,13 @@ router.get('/api/current_user', (req, res) => {
 
 // Route to handle payment
 router.post('/api/stripe', requireLogin, stripePayment);
+
+// Route to handle creating surveys
+router.post('/api/surveys', requireLogin, requireCredits, createSurvey);
+
+// Route to handle thank you page
+router.get('/api/survey/thank-you', (req, res) => {
+  res.send('Thank you for feedback!');
+});
 
 export default router;

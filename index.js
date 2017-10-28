@@ -6,9 +6,11 @@ import passport from 'passport';
 import bodyParser from 'body-parser';
 import path from 'path';
 import config from './config/config';
-import router from './router';
+
 import './models/User';
 import './models/Survey';
+
+import router from './router';
 import './services/passport-google-oauth';
 
 const app = express();
