@@ -1,0 +1,18 @@
+.logo {
+  font-size: 24px;
+}
+
+.credits {
+  margin: 0 10px;
+}
+
+.error {
+  display: block;
+  margin-top: -15px;
+  margin-bottom: 25px;
+  font-size: 12px;
+}
+
+.form-review {
+  margin-bottom: 20px;
+}

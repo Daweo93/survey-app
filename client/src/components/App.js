@@ -4,7 +4,8 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import * as actions from '../actions';
 import Header from './Header';
 import Landing from './Landing';
-import Dashboard from './Dashboard';
+import Surveys from './surveys/Surveys';
+import SurveysNew from './surveys/SurveysNew';
 
 class App extends Component {
   componentDidMount() {
@@ -17,7 +18,8 @@ class App extends Component {
           <Header />
           <div className="container">
             <Route exact path="/" component={Landing} />
-            <Route exact path="/surveys" component={Dashboard} />
+            <Route exact path="/surveys" component={Surveys} />
+            <Route exact path="/surveys/new" component={SurveysNew} />
           </div>
         </div>
       </BrowserRouter>

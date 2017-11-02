@@ -13,6 +13,7 @@
   "dependencies": {
     "axios": "^0.17.0",
     "global": "^4.3.2",
+    "lodash": "^4.17.4",
     "materialize-css": "^0.100.2",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
@@ -23,6 +24,7 @@
     "react-scripts": "1.0.14",
     "react-stripe-checkout": "^2.6.3",
     "redux": "^3.7.2",
+    "redux-form": "^7.1.2",
     "redux-thunk": "^2.2.0",
     "serve": "^6.3.1"
   },
