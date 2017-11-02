@@ -1,7 +1,7 @@
 import express from 'express';
 import passport from 'passport';
-import stripePayment from './services/payments';
-import { createSurvey } from './services/surveys';
+import stripePayment from './controllers/payments';
+import { createSurvey, updateSurvey } from './controllers/surveys';
 import requireLogin from './middlewares/requireLogin';
 import requireCredits from './middlewares/requireCredits';
 const router = express.Router();
@@ -41,8 +41,11 @@ router.post('/api/stripe', requireLogin, stripePayment);
 router.post('/api/surveys', requireLogin, requireCredits, createSurvey);
 
 // Route to handle thank you page
-router.get('/api/survey/thank-you', (req, res) => {
+router.get('/api/surveys/:surveyId/:answer', (req, res) => {
   res.send('Thank you for feedback!');
 });
+
+// Router to handle SendGrid webhook
+router.post('/api/surveys/webhooks', updateSurvey);
 
 export default router;

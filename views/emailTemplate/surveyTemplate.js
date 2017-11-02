@@ -10,8 +10,8 @@ export default survey => {
       <p>Please answer following question</p>
       <p> ${survey.body} </p>
       <div>
-        <a href="${config.redirectDomain}/api/survey/thank-you">Yes</a> or 
-        <a href="${config.redirectDomain}/api/survey/thank-you">No</a>
+        <a href="${config.redirectDomain}/api/surveys/${survey.id}/yes">Yes</a> or 
+        <a href="${config.redirectDomain}/api/surveys/${survey.id}/no">No</a>
       </div>
     </div>
   </body>
