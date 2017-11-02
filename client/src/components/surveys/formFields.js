@@ -12,7 +12,7 @@ export default [
     label: 'Email body'
   },
   {
-    name: 'emails',
+    name: 'recipients',
     label: 'Recipients list'
   }
 ];
