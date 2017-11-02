@@ -16,3 +16,9 @@
 .form-review {
   margin-bottom: 20px;
 }
+
+.clearfix:after {
+  display: table;
+  clear: both;
+  content: '';
+}

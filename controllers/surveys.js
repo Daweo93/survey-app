@@ -41,8 +41,6 @@ export const createSurvey = async (req, res) => {
 
 /**
  * Update survey data with answer
- * @param {*} req 
- * @param {*} res 
  */
 export const updateSurvey = (req, res) => {
   const p = new Path('/api/surveys/:surveyId/:choice');
@@ -61,7 +59,7 @@ export const updateSurvey = (req, res) => {
     })
     .compact()
     .uniqBy('email', 'surveyId')
-    .each(({email, surveyId, choice}) => {
+    .each(({ email, surveyId, choice }) => {
       Survey.updateOne(
         {
           _id: surveyId,
@@ -78,6 +76,20 @@ export const updateSurvey = (req, res) => {
     })
     .value();
 
-
   res.send({});
+};
+
+/**
+ * Get all surveys 
+ * @param {Object} Request
+ * @param {Object} Response
+ */
+export const getSurveys = async (req, res) => {
+  const surveys = await Survey.find({
+    _user: req.user.id
+  }).select({
+    recipients: false
+  });
+
+  res.send(surveys);
 };

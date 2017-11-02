@@ -1,7 +1,7 @@
 import express from 'express';
 import passport from 'passport';
 import stripePayment from './controllers/payments';
-import { createSurvey, updateSurvey } from './controllers/surveys';
+import { createSurvey, updateSurvey, getSurveys } from './controllers/surveys';
 import requireLogin from './middlewares/requireLogin';
 import requireCredits from './middlewares/requireCredits';
 const router = express.Router();
@@ -39,6 +39,9 @@ router.post('/api/stripe', requireLogin, stripePayment);
 
 // Route to handle creating surveys
 router.post('/api/surveys', requireLogin, requireCredits, createSurvey);
+
+// Router to get all of surveys 
+router.get('/api/surveys', requireLogin, getSurveys);
 
 // Route to handle thank you page
 router.get('/api/surveys/:surveyId/:answer', (req, res) => {
