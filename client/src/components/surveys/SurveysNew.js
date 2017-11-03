@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import SurveyForm from './SurveyForm';
 import SurveyFormPreview from './SurveyFormPreview';
 import { reduxForm } from 'redux-form';
@@ -12,21 +14,38 @@ class SurveyNew extends Component {
   };
 
   render() {
-    if (this.state.showFormPreview) {
+    const auth = this.props.auth;
+    if (auth) {
+      if (auth.credits < 1) {
+        return <Redirect to="/surveys" />;
+      }
+
+      if (this.state.showFormPreview) {
+        return (
+          <SurveyFormPreview
+            hidePreview={() => this.setState({ showFormPreview: false })}
+          />
+        );
+      }
+
       return (
-        <SurveyFormPreview
-          hidePreview={() => this.setState({ showFormPreview: false })}
+        <SurveyForm
+          showPreview={() => this.setState({ showFormPreview: true })}
         />
       );
     }
 
-    return (
-      <SurveyForm
-        showPreview={() => this.setState({ showFormPreview: true })}
-      />
-    );
+    return null;
   }
 }
+
+function mapStateToProps({ auth }) {
+  return {
+    auth
+  };
+}
+
+SurveyNew = connect(mapStateToProps)(SurveyNew);
 
 export default reduxForm({
   form: 'surveyForm'

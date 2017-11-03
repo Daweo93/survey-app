@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Aux from 'react-aux';
-import { Link } from 'react-router-dom';
 import { fetchSurveys } from '../../actions/';
+import SurveysList from './SurveysList';
 
 /**
  * Surveys display list of created surveys.
@@ -12,53 +12,38 @@ class Surveys extends Component {
     this.props.fetchSurveys();
   }
 
-  renderSurveys() {
-    const surveys = this.props.surveys;
-    if (!surveys) {
-      return <h3>No surveys</h3>;
+  newSurveyClick = () => {
+    if (this.props.auth.credits < 1) {
+      return window.Materialize.toast(
+        'You must buy credits to send survey!',
+        2000
+      );
     }
 
-    return surveys.reverse().map(({ _id, title, body, no, yes, dateSent }) => {
-      return (
-        <div className="card" key={_id}>
-          <div className="card-content">
-            <p className="card-title">{title}</p>
-            <p>{body}</p>
-          </div>
-          <div className="card-action clearfix">
-            <div className="left">
-              <a>Yes: {yes}</a>
-              <a>No: {no}</a>
-            </div>
-            <div className="right">
-              Sent on: {new Date(dateSent).toLocaleDateString()}
-            </div>
-          </div>
-        </div>
-      );
-    });
-  }
+    this.props.history.push('/surveys/new');
+  };
 
   render() {
     return (
       <Aux>
-        {this.renderSurveys()}
+        <SurveysList surveys={this.props.surveys} />
         <div className="fixed-action-btn">
-          <Link
-            to="/surveys/new"
+          <a
+            onClick={this.newSurveyClick}
             className="btn-floating btn-large waves-effect waves-light red"
           >
             <i className="material-icons">add</i>
-          </Link>
+          </a>
         </div>
       </Aux>
     );
   }
 }
 
-function mapStateToProps({ surveys }) {
+function mapStateToProps({ auth, surveys }) {
   return {
-    surveys
+    surveys,
+    auth
   };
 }
 
