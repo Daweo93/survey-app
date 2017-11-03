@@ -1,4 +1,4 @@
-# Survejer App 
+# Surveyed App 
 React & NodeJS based app for sending simple surveys and get feedback from users. Before sending surveys user must create account and buy credits. One credit allow user to send one email to many recipients with single polar question.
 
 This is a good start point to build scalable survey application with many features. 

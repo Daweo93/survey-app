@@ -40,7 +40,7 @@ class Header extends Component {
         <div className="row">
           <div className="nav-wrapper col s12">
             <Link to={this.props.auth ? '/surveys' : '/'} className="logo">
-              Survejer
+              Surveyed
             </Link>
             <ul className="right">{this.renderContent()}</ul>
           </div>

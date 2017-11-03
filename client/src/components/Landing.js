@@ -12,7 +12,7 @@ class Landing extends Component {
   render() {
     return (
       <Aux>
-        <h1 className="center">Survejer</h1>
+        <h1 className="center">Surveyed</h1>
         <h5 className="center">Collect feedback from your users</h5>
       </Aux>
     );
