@@ -26,7 +26,7 @@ router.get(
 // Route to logout from our app
 router.get('/api/logout', (req, res) => {
   req.logout();
-  res.redirect('/');
+  res.send(req.user);
 });
 
 // Router which send back current user
@@ -40,7 +40,7 @@ router.post('/api/stripe', requireLogin, stripePayment);
 // Route to handle creating surveys
 router.post('/api/surveys', requireLogin, requireCredits, createSurvey);
 
-// Router to get all of surveys 
+// Router to get all of surveys
 router.get('/api/surveys', requireLogin, getSurveys);
 
 // Route to handle thank you page

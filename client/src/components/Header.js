@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import Aux from 'react-aux';
+import { Link, withRouter } from 'react-router-dom';
 import Payments from './Payments';
+import { userLogout } from '../actions';
 
 class Header extends Component {
   renderContent() {
@@ -18,17 +18,19 @@ class Header extends Component {
           </li>
         );
       default:
-        return (
-          <Aux>
-            <li>
-              <Payments />
-            </li>
-            <li className="credits">Credits: {this.props.auth.credits}</li>
-            <li>
-              <Link to="/api/logout">Logout</Link>
-            </li>
-          </Aux>
-        );
+        return [
+          <li key="p">
+            <Payments />
+          </li>,
+          <li key="c" className="credits">
+            Credits: {this.props.auth.credits}
+          </li>,
+          <li key="l">
+            <a onClick={() => this.props.userLogout(this.props.history)}>
+              Logout
+            </a>
+          </li>
+        ];
     }
   }
 
@@ -52,4 +54,4 @@ function mapStateToProps({ auth }) {
   return { auth };
 }
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps, { userLogout })(withRouter(Header));
