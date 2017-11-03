@@ -87,9 +87,11 @@ export const updateSurvey = (req, res) => {
 export const getSurveys = async (req, res) => {
   const surveys = await Survey.find({
     _user: req.user.id
-  }).select({
-    recipients: false
-  });
+  })
+    .select({
+      recipients: false
+    })
+    .sort({ dateSent: -1 });
 
   res.send(surveys);
 };

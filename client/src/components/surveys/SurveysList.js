@@ -5,7 +5,7 @@ export default ({ surveys }) => {
     return <h3>No surveys</h3>;
   }
 
-  return surveys.reverse().map(({ _id, title, body, no, yes, dateSent }) => {
+  return surveys.map(({ _id, title, body, no, yes, dateSent }) => {
     return (
       <div className="card" key={_id}>
         <div className="card-content">
