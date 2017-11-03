@@ -19,10 +19,11 @@ Card CVC code: 123
 1. Create MongoDB database on [mLab](https://mlab.com/)
 1. Create account on [Stripe](stripe.com) to get keys for payments feature
 1. Create account on [SendGrid](sendgrid.com) to get keys for email sending feature
-1. Create `.env.development` and `.end.production` base on `.env` file
-1. Create `dev.js` file based on `config.default.js` file
-1. Install all dependencies by `npm i` or `yarn`
-1. Run `npm start` or `yarn start`
+1. Update `.env.development` with your personal keys
+1. Create `dev.js` file based on `config.example.js` file
+1. Install all dependencies by `npm i` or `yarn` for client side and server side
+1. Run `npm run dev` or `yarn run dev` in root directory - for NodeJS server
+1. Run `npm start` or `yarn start` in client directory - for React app
 
 ### Used technologies
 * Node.js

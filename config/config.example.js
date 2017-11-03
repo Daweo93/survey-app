@@ -6,5 +6,7 @@ export default {
     'mongodb://<dbuser>:<dbpassword>@ds127065.mlab.com:27065/<database_name>',
   cookieKey: 'random_string',
   stripePublishableKey: 'stripe publishable key',
-  stripeSecretKey: 'stripe secret key'
+  stripeSecretKey: 'stripe secret key',
+  sendGridKey: 'sendgrid secret key',
+  redirectDomain: 'email template redirect url'
 };
