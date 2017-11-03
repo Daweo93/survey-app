@@ -10,7 +10,6 @@ class Landing extends Component {
   }
 
   render() {
-    console.log(this.props.auth);
     return (
       <Aux>
         <h1 className="center">Survejer</h1>
