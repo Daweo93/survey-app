@@ -4,7 +4,7 @@ React & NodeJS based app for sending simple surveys and get feedback from users.
 This is a good start point to build scalable survey application with many features. 
 
 ### Checkout demo
-Here is a [demo](murmuring-waters-13033.herokuapp.com) which presents already implemented features.
+Here is a [demo](https://murmuring-waters-13033.herokuapp.com) which presents already implemented features.
 Example data to Stripe checkout
 ```
 Email: test@test.pl
